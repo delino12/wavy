@@ -3,7 +3,7 @@
 * Require Unirest
 * Call files from vendor
 */
-require_once "../../vendor/autoload.php";
+require("../../vendor/autoload.php)";
 
 
 /**
