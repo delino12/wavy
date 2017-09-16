@@ -1,4 +1,10 @@
 <?php
+/*
+* Require Unirest
+* Call files from vendor
+*/
+require_once "../../vendor/autoload.php";
+
 
 /**
 * Money Wave API
