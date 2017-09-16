@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ravy Wavy</title>
+	<title>Money Wavy</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
-<?php
-/*
-  use Flutterwave\Card;
-  use Flutterwave\Flutterwave;
-  use Flutterwave\AuthModel;
 
-  $merchantkey = "744hdhhg"; //merchant key on flutterwave dev portal
-  $apiKey = "58jdjdjd"; //merchant api key on flutterwave dev portal
-  $env = "staging"; //can be staging or production
-  Flutterwave::setMerchantCredentials($merchantKey, $apiKey, $env);
-
-  $card = [
-    "card_no" => "",
-    "cvv" => "",
-    "expiry_month" => "",
-    "expiry_year" => ""
-  ];
-
-  $authModel = AuthModel::BVN; //this tells flutterwave how to validate the user of the card is the card owner
-  //you can also use AuthModel::NOAUTH which does not need validate method call
-  $validateOption = Flutterwave::SMS; //this tells flutterwave to send authentication otp via sms
-  $bvn = ""; //represents the bvn number of the card owner/user
-  $result = Card::tokenize($card, $authModel, $validateOption, $bvn = "");
-
-  if ($result->isSuccessfulResponse()) {
-    echo("Card was successfully tokenized");
-  }
-
-  $card = [
-    "card_no" => "",
-    "cvv" => "",
-    "expiry_month" => "",
-    "expiry_year" => "",
-    "card_type" => "" //optional parameter. only needed if card was issued by diamond card
-  ];
-  $custId = "76464"; your users customer id
-  $currency = Currencies::NAIRA; //currency to charge the card
-  $authModel = AuthModel::BVN; can be BVN, NOAUTH, PIN, etc
-  $narration = "narration for this transaction";
-  $responseUrl = ""; //callback url
-  $country = Countries::NIGERIA;
-  Card::charge($card, $amount, $custId, $currency, $country, $authModel, $narration, $responseUrl);
-  */
-?>
 <br /><br />
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <div class="thumbnail">
+        <div class="panel-body">
+          <h4>Api Response shows below..</h4>
+          <div id="response"></div>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $("#response").load("php/payment-gateway.php");
+  </script>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="https://ae01.alicdn.com/kf/HTB1HmSlLXXXXXXUXpXXq6xXFXXXZ/9-font-b-Color-b-font-Mens-font-b-Dress-b-font-Slim-Fit-font-b.jpg" width="100%" height="100">
+      </div>
+      <button class="btn btn-default" id="card-payment">Pay With Card</button>
+      <button class="btn btn-default">Pay With Wallet</button>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="https://ae01.alicdn.com/kf/HTB1HmSlLXXXXXXUXpXXq6xXFXXXZ/9-font-b-Color-b-font-Mens-font-b-Dress-b-font-Slim-Fit-font-b.jpg" width="100%" height="100">
+      </div>
+      <button class="btn btn-default" id="card-payment">Pay With Card</button>
+      <button class="btn btn-default">Pay With Wallet</button>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="https://ae01.alicdn.com/kf/HTB1HmSlLXXXXXXUXpXXq6xXFXXXZ/9-font-b-Color-b-font-Mens-font-b-Dress-b-font-Slim-Fit-font-b.jpg" width="100%" height="100">
+      </div>
+      <button class="btn btn-default" id="card-payment">Pay With Card</button>
+      <button class="btn btn-default">Pay With Wallet</button>
+    </div>
+  </div>
+  <div class="row" style="display: none;" id="payment">
     <div class="col-md-5">
       <form id="payment-form" method="post" action="{{url}}">
         <div class="form-group">
@@ -84,28 +78,20 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $("#card-payment").click(function (){
+    $("#payment").show();
+  });
 
-<?php
-// get payment details
-$card_no = 5438898014560229;
-$card_type = "Master Card";
-$card_exp = "09/19";
-$card_cvv = 789;
-$card_year = "";
+  function makePayment(){
+    var card_no = "5399831635507417";
+    var card_type = "Master";
+    var card_exp = "09/19";
+    var card_cvv = "950";
 
-
-if($card_no)
-{
-   $card = [
-    "card_no" => $card_no,
-    "cvv" => $card_cvv,
-    "expiry_month" => $card_exp,
-    "expiry_year" => $card_year,
-    "card_type" => $card_type //optional parameter. only needed if card was issued by diamond card
-  ];
-}
-
-?>
+    return false;
+  }
+</script>
 
 </body>
 </html>
