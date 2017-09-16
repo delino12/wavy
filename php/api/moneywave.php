@@ -25,8 +25,7 @@ class MoneyWave
     $headers = array('content-type' => 'application/json');
     $query = array('apiKey' => $this->api_key, 'secret' => $this->app_secret);
     $response = Unirest\Request::post('https://moneywave.herokuapp.com/v1/merchant/verify', $headers, $query);
-
-    return $response;
+    print_r($response);
   }
 
 }
